@@ -3,6 +3,7 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,7 +13,6 @@ jobs:
       uses: okteto/context@latest
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
-        url: ${{ secrets.OKTETO_URL }}
 
     - name: checkout
       uses: actions/checkout@master
@@ -20,13 +20,13 @@ jobs:
     - name: "Build frontend"
       uses: okteto/build@latest
       with:
-        tag: okteto.global/frontend:${{ github.sha }}
+        tag: ${{ secrets.DOCKER_HUB_USERNAME }}/frontend:${{ github.sha }}
         path: frontend
         file: frontend/Dockerfile
 
     - name: "Build api"
       uses: okteto/build@latest
       with:
-        tag: okteto.global/api:${{ github.sha }}
+        tag: ${{ secrets.DOCKER_HUB_USERNAME }}/api:${{ github.sha }}
         path: api
         file: api/Dockerfile
