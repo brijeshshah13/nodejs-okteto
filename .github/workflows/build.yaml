@@ -12,7 +12,7 @@ jobs:
     - name: Login to docker hub
       uses: actions-hub/docker/login@master
       env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
     - name: Context
