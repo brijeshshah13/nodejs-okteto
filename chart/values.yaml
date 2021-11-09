@@ -2,11 +2,11 @@ tag: dev
 
 api:
   replicaCount: 2
-  image: okteto.dev/api
+  image: ${DOCKER_HUB_USERNAME}/api
 
 frontend:
   replicaCount: 2
-  image: okteto.dev/frontend
+  image: ${DOCKER_HUB_USERNAME}/frontend
 
 mongodb:
   password: "Password!1@2"
