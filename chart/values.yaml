@@ -2,11 +2,11 @@ tag: dev
 
 api:
   replicaCount: 2
-  image: ${DOCKER_HUB_USERNAME}/api
+  image: brijesh13/api
 
 frontend:
   replicaCount: 2
-  image: ${DOCKER_HUB_USERNAME}/frontend
+  image: brijesh13/frontend
 
 mongodb:
   password: "Password!1@2"
