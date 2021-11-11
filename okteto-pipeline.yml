@@ -4,8 +4,8 @@ deploy:
   - helm plugin install https://github.com/datreeio/helm-datree
   - export DATREE_TOKEN=${DATREE_TOKEN}
   - helm datree test chart
-  - okteto build -t okteto.dev/api:${OKTETO_GIT_COMMIT} api
-  - okteto build -t okteto.dev/frontend:${OKTETO_GIT_COMMIT} frontend
+  - okteto build -t ${DOCKER_HUB_USERNAME}/api:${OKTETO_GIT_COMMIT} api
+  - okteto build -t ${DOCKER_HUB_USERNAME}/frontend:${OKTETO_GIT_COMMIT} frontend
   - helm upgrade --install movies chart --set tag=${OKTETO_GIT_COMMIT}
 devs:
   - api/okteto.yml
