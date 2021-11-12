@@ -9,12 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Login to docker hub
-      uses: actions-hub/docker/login@master
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-
     - name: Context
       uses: okteto/context@latest
       with:
@@ -26,13 +20,13 @@ jobs:
     - name: "Build frontend"
       uses: okteto/build@latest
       with:
-        tag: ${{ secrets.DOCKER_HUB_USERNAME }}/frontend:${{ github.sha }}
+        tag: okteto.global/frontend:${{ github.sha }}
         path: frontend
         file: frontend/Dockerfile
 
     - name: "Build api"
       uses: okteto/build@latest
       with:
-        tag: ${{ secrets.DOCKER_HUB_USERNAME }}/api:${{ github.sha }}
+        tag: okteto.global/api:${{ github.sha }}
         path: api
         file: api/Dockerfile
