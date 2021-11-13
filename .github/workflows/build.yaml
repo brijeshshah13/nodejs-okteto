@@ -20,13 +20,13 @@ jobs:
     - name: "Build frontend"
       uses: okteto/build@latest
       with:
-        tag: okteto.global/frontend:${{ github.sha }}
+        tag: okteto.dev/frontend:${{ github.sha }}
         path: frontend
         file: frontend/Dockerfile
 
     - name: "Build api"
       uses: okteto/build@latest
       with:
-        tag: okteto.global/api:${{ github.sha }}
+        tag: okteto.dev/api:${{ github.sha }}
         path: api
         file: api/Dockerfile
