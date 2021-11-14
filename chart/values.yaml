@@ -1,7 +1,7 @@
 tag: dev
 
 api:
-  replicaCount: 3
+  replicaCount: 2
   image: okteto.dev/api
 
 frontend:
